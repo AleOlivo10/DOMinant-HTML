@@ -17,7 +17,7 @@
             <li class="b1color">Selector a: getElementById (only one #ID)</li>
             <li class="b1color">Selector b: getElementsbyClassName (several things inside #classes)</li>
         </ul>
-    //control + shift + D to copy the same line again and again
+    /*control + shift + D to copy the same line again and again
     
         <p>Alternative Facts:</p>
         <ul>
@@ -29,7 +29,7 @@
             <li class="b2color">Selector b: getElementsbyClassName (several things inside #classes)</li>
             </ul>
             
-        <input id="inputName">
+        <input id="nameInput">
 
 <button type="button" onclick="myFunction()">Submit Your Name</button>
 
@@ -41,9 +41,9 @@
         // var inputName = prompt("What is your name:");
         // document.getElementById("subtitle").innerText = "Welcome to the class " + inputName;
         
-    function myFunction() { var inputname1, hi;
-        var inputName1 = document.getElementById("inputName").value;
-        document.getElementById("hi").innerHTML = "With yours truly " + inputName1;
+    function myFunction() { var nameInput, hello;
+        var nameInput = document.getElementById("nameInput").value;
+        document.getElementById("subtitle").innerHTML = "With yours truly " + nameInput;
     }
 
         
