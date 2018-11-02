@@ -3,11 +3,6 @@
     <head>
         <title> DOMinant HTML</title>
         
-        
-        
-        
-        
-        
     </head>
     <body>
         <h1 id="maintitle">Learning DOMinant HTML</h1>
@@ -22,8 +17,8 @@
             <li class="b1color">Selector a: getElementById (only one #ID)</li>
             <li class="b1color">Selector b: getElementsbyClassName (several things inside #classes)</li>
         </ul>
-        //control + shift + D to copy the same line again and again
-        
+    //control + shift + D to copy the same line again and again
+    
         <p>Alternative Facts:</p>
         <ul>
             <li class="b2color">The DOM is a tree</li>
@@ -33,11 +28,24 @@
             <li class="b2color">Selector a: getElementById (only one #ID)</li>
             <li class="b2color">Selector b: getElementsbyClassName (several things inside #classes)</li>
             </ul>
+            
+        <input id="inputName">
+
+<button type="button" onclick="myFunction()">Submit Your Name</button>
+
+
+        
     </body>
-    
     <script>
-        var inputName = prompt("What is your name?");
-        document.getElementById("subtitle").innerText = "Welcome to the class " + inputName;
+    
+        // var inputName = prompt("What is your name:");
+        // document.getElementById("subtitle").innerText = "Welcome to the class " + inputName;
+        
+    function myFunction() { var inputname1, hi;
+        var inputName1 = document.getElementById("inputName").value;
+        document.getElementById("hi").innerHTML = "With yours truly " + inputName1;
+    }
+
         
     </script>
     
