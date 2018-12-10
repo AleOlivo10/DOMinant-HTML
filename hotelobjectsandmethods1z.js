@@ -21,6 +21,16 @@ var hotel = {
         return this.roomNumbersAvailable.length + this.roomNumbersBooked.length;
     },
 
+updateAvailableRoomList: function() {
+    
+    var roomsListed = "<form> <select id='selectedRoom'>";
+    for (var i = 0; i < this.roomNumbersAvailable.length; i++) {
+      roomsListed +=
+      //+= means that you're telling the computer that you want the variable to stay the same but also add to it
+    },
+},
+
+
     bookRoom: function() {
         //only book a room if one or more are available
         if (this.numberOfRoomsAvailable() > 0) {
