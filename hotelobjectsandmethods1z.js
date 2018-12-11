@@ -21,17 +21,26 @@ var hotel = {
         return this.roomNumbersAvailable.length + this.roomNumbersBooked.length;
     },
 
-updateAvailableRoomList: function() {
-    
-    var roomsListed = "<form> <select id='selectedRoom'>";
-    for (var i = 0; i < this.roomNumbersAvailable.length; i++) {
-      roomsListed +=
-      //+= means that you're telling the computer that you want the variable to stay the same but also add to it
+    updateAvailableRoomList: function() {
+
+        var roomsListed = "<form> <select id='selectedRoom'>";
+        for (var i = 0; i < this.roomNumbersAvailable.length; i++) {
+            roomsListed += "<option value=" + this.roomNumbersAvailable[i] + ">" + this.roomNumbersAvailable[i] + "</option>";
+            //+= means that you're telling the computer that you want the variable to stay the same but also add to it
+        }
+        roomsListed += "</select> </form>";
+        document.getElementById("selectARoom").innerHTML = roomsListed;
     },
+    bookRoom: function(room) {
+            for (var i = 0; i < this.roomNumbersAvailable.length; i++) {
+                if (document.getElementById("selectedRoom").value == this.roomNumbersAvailable[i]) {
+                  this.roomNumbersBooked = this.roomNumbersAvailable.splice(i, 1).concat(this.roomNumbersBooked)
+                  this.updateAvailableRoomList()
+                }    
+            }
 },
 
-
-    bookRoom: function() {
+    bookRandomRoom: function() {
         //only book a room if one or more are available
         if (this.numberOfRoomsAvailable() > 0) {
             //remove the booked room from roomNumbersAvailable and add it to roomNumbersBooked
@@ -74,7 +83,8 @@ updateAvailableRoomList: function() {
             this.roomNumbersAvailable = this.roomNumbersAvailable.concat(cleanRoom);
 
             console.log("All clean! Available rooms:", this.roomNumbersAvailable);
-        } else {
+        }
+        else {
             console.log("All rooms are clean, no need for housekeeping.");
         }
     }
@@ -97,10 +107,10 @@ document.getElementById("hotelName").innerText = hotel.name;
 //SO select a room method
 
 var selectRoomList = "<form> <select id='selectedRoom'>";
-for (var i =0; i < hotel.roomNumbersAvailable.length; i++) {
-    
-//RESEARCH ESCAPING CHARACTERS
-    selectRoomList += "<option value = \'"+ hotel.roomNumbersAvailable[i] +"\'> "+hotel.roomNumbersAvailable[i]+" </option>"; 
+for (var i = 0; i < hotel.roomNumbersAvailable.length; i++) {
+
+    //RESEARCH ESCAPING CHARACTERS
+    selectRoomList += "<option value = \'" + hotel.roomNumbersAvailable[i] + "\'> " + hotel.roomNumbersAvailable[i] + " </option>";
     //the line above writes out all of the options so you dont have to write it out for each individual line
 }
 selectRoomList += "</select> </form>";
