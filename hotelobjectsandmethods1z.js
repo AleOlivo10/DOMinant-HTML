@@ -32,13 +32,33 @@ var hotel = {
         document.getElementById("selectARoom").innerHTML = roomsListed;
     },
     bookRoom: function(room) {
-            for (var i = 0; i < this.roomNumbersAvailable.length; i++) {
-                if (document.getElementById("selectedRoom").value == this.roomNumbersAvailable[i]) {
-                  this.roomNumbersBooked = this.roomNumbersAvailable.splice(i, 1).concat(this.roomNumbersBooked)
-                  this.updateAvailableRoomList()
-                }    
+        for (var i = 0; i < this.roomNumbersAvailable.length; i++) {
+            if (document.getElementById("selectedRoom").value == this.roomNumbersAvailable[i]) {
+                this.roomNumbersBooked = this.roomNumbersAvailable.splice(i, 1).concat(this.roomNumbersBooked);
+                this.updateAvailableRoomList();
+                this.secondDropDownList();
             }
-},
+        }
+    },
+    
+    secondDropDownList: function() {
+        
+      var newList = "<form> <select id='rmBooked'>";
+      for (var i = 0; i < this.roomNumbersBooked.length; i++) {
+         newList += "<option value =" + this.roomNumbersBooked[i] + ">" + this.roomNumbersBooked[i] + "</option>";
+      }
+      newList += "</select> </form>";
+      document.getElementById("rmBooked").innerHTML = newList;
+    },
+    
+    returnRoom: function(room) {
+        for (var i= 0; i < this.roomNumbersBooked.length; i++) {
+            if (document.getElementById("dirtyRoom").value == this.roomNumbersBooked[i]) {
+                this.roomNumbersAvailable = this.roomNumbersBooked.splice(i, 1).concat(this.roomNumbersAvailable);
+                this.secondDropDownList()
+            }
+        }
+    },
 
     bookRandomRoom: function() {
         //only book a room if one or more are available
