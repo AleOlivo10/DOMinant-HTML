@@ -51,4 +51,4 @@ seatChoices += "</select> </form>";
 document.getElementById("seat").innerHTML = seatChoices;
 
 //HW: MAKE THIS WORKABLE AND PRETTY
-//Use alerts
+//Use alerts and play around with <span>
