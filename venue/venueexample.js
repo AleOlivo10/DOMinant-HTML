@@ -51,3 +51,4 @@ seatChoices += "</select> </form>";
 document.getElementById("seat").innerHTML = seatChoices;
 
 //HW: MAKE THIS WORKABLE AND PRETTY
+//Use alerts
